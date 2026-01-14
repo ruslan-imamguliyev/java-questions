@@ -102,17 +102,26 @@ public static void verify() {
 
 ## Solution:
 ```java
-def correct_solution(salary: list[int]) -> float:
-    if len(salary) <= 2:
-        return 0.0
-    min_salary = salary[0]
-    max_salary = salary[0]
-    sum_salary = 0
-    for s in salary:
-        sum_salary += s
-        if s < min_salary:
-            min_salary = s
-        if s > max_salary:
-            max_salary = s
-    return (sum_salary - min_salary - max_salary) / (len(salary) - 2)
+public static double correctSolution(int[] salary) {
+    int n = salary.length;
+    if (n <= 2) {
+        return 0.0;
+    }
+    int minn = salary[0];
+    int maxx = salary[0];
+    int summ = 0;
+    for (int num: salary) {
+        if (num > maxx) {
+            maxx = num;
+        }
+
+        if (num < minn) {
+            minn = num;
+        }
+        summ += num;
+    }
+
+    return (summ - minn - maxx) / (n - 2);
+}
 ```
+
